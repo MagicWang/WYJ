@@ -1,0 +1,16 @@
+﻿<Page x:Class="WYJ.Samples.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" KeepAlive="True"
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page1">
+
+    <Grid>
+        <TextBlock>
+        <Run>### This is Page 1, Let's go to### This is Page 1, Let's go to### This is Page 1, Let's go to</Run>
+        <Hyperlink NavigateUri="Page2.xaml" >Page2</Hyperlink>
+        </TextBlock>
+    </Grid>
+</Page>

@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:themes="clr-namespace:WYJ.Windows.Themes;assembly=WYJ.Windows">
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonNormalBackgroundKey}" Color="Black"/>
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonMouseOverBackgroundKey}" Color="White"/>
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonPressedBackgroundKey}" Color="#FFB0B0B0"/>
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonNormalForegroundKey}" Color="#CCD6D6D6"/>
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonMouseOverForegroundKey}" Color="#FFC6C6C6"/>
+    <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:ResourceKeys}, ResourceId=ButtonPressedForegroundKey}" Color="#FFC6C6C6"/>
+</ResourceDictionary>

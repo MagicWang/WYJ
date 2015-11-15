@@ -1,0 +1,13 @@
+﻿<Window x:Class="WYJ.Samples.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window2" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Button Click="Button_Click"/>
+        <WebBrowser x:Name="browser" Source="http://localhost/index.html" Grid.Row="1"/>
+    </Grid>
+</Window>

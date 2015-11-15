@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function sleep(numberMillis) {
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) {
+                now = new Date();
+                if (now.getTime() > exitTime)
+                    return;
+            }
+        }
+        function getZoomLevel() {
+            return 5;
+        }
+        function rectSelect() {
+            window.external.OnSelected(1);
+        }
+    </script>
+</head>
+<body>
+    <a href="#" onclick="rectSelect()">content</a>
+</body>
+</html>
