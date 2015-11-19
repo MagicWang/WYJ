@@ -11,7 +11,7 @@ using System.Windows.Media;
 namespace WYJ.Windows.Controls
 {
     /// <summary>
-    /// 给TextBox或Password添加水印文本
+    /// 给控件添加水印文本
     /// </summary>
     public class WatermarkAdorner : Adorner
     {
@@ -19,23 +19,23 @@ namespace WYJ.Windows.Controls
             : base(adornedElement)
         {
             this.IsHitTestVisible = false;
-            if (AdornedElement is TextBox || AdornedElement is PasswordBox)
+            if (AdornedElement is TextBox)
             {
-                AdornedElement.GotFocus += (s, e) => InvalidateVisual();
-                AdornedElement.LostFocus += (s, e) => InvalidateVisual();
+                SetContentProperty(AdornedElement, "Text");
             }
-            else
-                throw new InvalidOperationException("要关联的控件不支持,只支持TextBox和PasswordBox");
+            else if (AdornedElement is PasswordBox)
+            {
+                SetContentProperty(AdornedElement, "Password");
+            }
+            AdornedElement.GotKeyboardFocus += (s, e) => InvalidateVisual();
+            AdornedElement.LostKeyboardFocus += (s, e) => InvalidateVisual();
         }
 
         protected override void OnRender(DrawingContext dc)
         {
-            string text = null;
-            if (AdornedElement is TextBox)
-                text = (AdornedElement as TextBox).Text;
-            else if (AdornedElement is PasswordBox)
-                text = (AdornedElement as PasswordBox).Password;
-            if (string.IsNullOrEmpty(text) && !AdornedElement.IsFocused)
+            var propertyName = GetContentProperty(AdornedElement);
+            var value = AdornedElement.GetProperty(propertyName);
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
             {
                 var fmt = new FormattedText(GetText(AdornedElement),
                 CultureInfo.CurrentCulture,
@@ -55,8 +55,10 @@ namespace WYJ.Windows.Controls
 
         public static void OnTextPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var source = d as Control;
-            source.Loaded += (s, e1) => AdornerLayer.GetAdornerLayer(source).Add(new WatermarkAdorner(source));
+            var source = d as FrameworkElement;
+            var adorner = new WatermarkAdorner(source);
+            adorner.SetBinding(UIElement.VisibilityProperty, new System.Windows.Data.Binding("Visibility") { Source = source });
+            source.Loaded += (s, e1) => AdornerLayer.GetAdornerLayer(source).Add(adorner);
         }
 
         public static string GetText(DependencyObject obj)
@@ -73,6 +75,22 @@ namespace WYJ.Windows.Controls
         /// </summary>
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.RegisterAttached("Text", typeof(string), typeof(WatermarkAdorner), new UIPropertyMetadata(null, OnTextPropertyChangedCallback));
+
+
+        public static string GetContentProperty(DependencyObject obj)
+        {
+            return (string)obj.GetValue(ContentPropertyProperty);
+        }
+
+        public static void SetContentProperty(DependencyObject obj, string value)
+        {
+            obj.SetValue(ContentPropertyProperty, value);
+        }
+        /// <summary>
+        /// 关联控件内容属性,默认为Text(使用反射求出关联控件此属性的值，来判断是否需要绘制水印文本)
+        /// </summary>
+        public static readonly DependencyProperty ContentPropertyProperty =
+            DependencyProperty.RegisterAttached("ContentProperty", typeof(string), typeof(WatermarkAdorner), new PropertyMetadata("Text"));
 
         public static Brush GetForeground(DependencyObject obj)
         {
