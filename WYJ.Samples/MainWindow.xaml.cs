@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WYJ.Core.Themes;
 using WYJ.Windows;
 using WYJ.Windows.Controls;
 using WYJ.Windows.Themes;

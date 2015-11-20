@@ -12,10 +12,10 @@
             <RowDefinition Height="277*"/>
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="comboBox" Margin="39,32,380,210" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="comboBox" Margin="39,32,380,210" wyj:WatermarkAdorner.Text="请输入" SelectionChanged="ComboBox_SelectionChanged">
         </ComboBox>
         <wyj:ImageButton Margin="138,114,183,123" Content="test"></wyj:ImageButton>
-        <ListBox x:Name="listBox">
+        <ListBox x:Name="listBox" Visibility="Collapsed">
             
         </ListBox>
         <wyj:DataPager x:Name="dataPager"  DisplayMode="FirstLastPreviousNext" PageSize="10"

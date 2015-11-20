@@ -160,17 +160,24 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WYJ.Core\WYJ.Core.csproj">
+      <Project>{4779a56e-2ffd-4b63-a77a-1cca311fb97d}</Project>
+      <Name>WYJ.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WYJ.Windows.Controls\WYJ.Windows.Controls.csproj">
+      <Project>{c06b4f0f-c5f9-43cc-876c-1a79908ccde6}</Project>
+      <Name>WYJ.Windows.Controls</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\WYJ.Windows.Themes.Black\WYJ.Windows.Themes.Black.csproj">
       <Project>{98351451-b4b9-4aa9-8bc1-d21b825ca7b6}</Project>
       <Name>WYJ.Windows.Themes.Black</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\WYJ.Windows.Themes.DarkBlue\WYJ.Windows.Themes.DarkBlue.csproj">
       <Project>{03549850-b887-4bee-8f90-72fa9cb6a2fc}</Project>
       <Name>WYJ.Windows.Themes.DarkBlue</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WYJ.Windows\WYJ.Windows.csproj">
-      <Project>{c06b4f0f-c5f9-43cc-876c-1a79908ccde6}</Project>
-      <Name>WYJ.Windows</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
@@ -181,17 +188,6 @@
     <Content Include="Logs\log.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

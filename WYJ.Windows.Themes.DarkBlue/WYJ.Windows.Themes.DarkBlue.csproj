@@ -84,9 +84,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\WYJ.Windows\WYJ.Windows.csproj">
+    <ProjectReference Include="..\WYJ.Core\WYJ.Core.csproj">
+      <Project>{4779a56e-2ffd-4b63-a77a-1cca311fb97d}</Project>
+      <Name>WYJ.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WYJ.Windows.Controls\WYJ.Windows.Controls.csproj">
       <Project>{c06b4f0f-c5f9-43cc-876c-1a79908ccde6}</Project>
-      <Name>WYJ.Windows</Name>
+      <Name>WYJ.Windows.Controls</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
